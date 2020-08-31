@@ -410,6 +410,20 @@ class Transfers24
     }
 
     /**
+     * Set client Name.
+     *
+     * @param string $client_name
+     *
+     * @return $this
+     */
+    public function setSessionId($sessionId)
+    {
+        $this->transaction_id = $sessionId;
+
+        return $this;
+    }
+
+    /**
      * Set client phone.
      *
      * @param string $client_phone
@@ -653,7 +667,6 @@ class Transfers24
             throw new RequestException('Empty email or amount');
         }
 
-        $this->transaction_id = uniqid();
 
         $response = $this->transfers24->init($this->setFields());
 
