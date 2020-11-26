@@ -59,6 +59,11 @@ class Transfers24
     protected $url;
 
     /**
+     * @var wait_for_result
+     */
+    protected $wait_for_result = 1;
+    
+    /**
      * @var int|null
      */
     protected $amount = null;
@@ -347,7 +352,10 @@ class Transfers24
 
         return $this;
     }
-
+    
+    public function setWaitForResult(Boolean $waitForResult){
+        $this->wait_for_result = $waitForResult;   
+    }
     /**
      * Set sale article name, price, quantity.
      *
@@ -638,6 +646,7 @@ class Transfers24
         $this->setField('p24_price_1', $this->article_price);
         $this->setField('p24_number_1', $this->article_number);
         $this->setField('p24_shipping', $this->shipping_cost);
+        $this->setField('p24_wait_for_result', $this->wait_for_result); 
 
         $next = 2;
         foreach ($this->additional_articles as $article) {
