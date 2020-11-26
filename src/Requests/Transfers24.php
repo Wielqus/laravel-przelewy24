@@ -353,7 +353,7 @@ class Transfers24
         return $this;
     }
     
-    public function setWaitForResult(Boolean $waitForResult){
+    public function setWaitForResult($waitForResult){
         $this->wait_for_result = $waitForResult;   
     }
     /**
